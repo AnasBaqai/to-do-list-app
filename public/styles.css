@@ -190,4 +190,7 @@ input.form-control{
   .big-heading{
     font-size: 3rem;
   }
+  input[type="text"]{
+    width: 70%;
+  }
 }
