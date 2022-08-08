@@ -1,34 +1,47 @@
 <%- include("header") -%>
-
-    <div class="content">
-        <div class="box " id="heading">
-            <h1>
-                <%= listTitle %>
-            </h1>
+<h1 class="big-heading">Welcome...</h1>
+    <div class="row feature">
+        
+        <div class="col-lg-4 aside ">
+            <p>
+                <%= motivation %>.
+            </p>
         </div>
+        <div class="content col-lg-8">
+            <div class="box " id="heading">
+                <h1>
+                    <%= listTitle %>
+                </h1>
+            </div>
 
 
 
-        <div class="box">
-            <% for (var i=0;i <tasks.length ;i++){ %>
-                <div class="item">
-                    <input type="checkbox" name="" id="">
-                    <p>
-                        <%= tasks[i] %>
-                    </p>
-                </div>
-                <% } %>
-
-                    <form class="item" action="/" method="post">
-
-                        <input type="text" name="task" id="" placeholder="new task" autocomplete="off">
-                        <button type="submit" name="list" value=<%=listTitle%> >+</button>
+            <div class="box">
+                <% tasks.forEach(function(task){ %>
+                    <form action="/delete" method="post">
+                        <div class="item mb-3">
+                            <input  type="checkbox" name="deletedItem" value="<%= task._id %>" id=""
+                                onChange="this.form.submit()">
+                            <p>
+                                <%= task.name %>
+                            </p>
+                            <input  type="hidden" name="listName" value="<%=listTitle%>">
+                        </div>
                     </form>
+                    <% }) %>
+
+
+
+                        <form class="item" action="/" method="post">
+                            <div class="mb-3">
+                                
+                            <input class="form-control" type="text" name="task" id="" placeholder="new task" autocomplete="off">
+                            <button class="btn btn-lg" type="submit" name="list" value=<%=listTitle%> ><i class="fa-solid fa-circle-plus fa-2xl"></i></button>
+                            </div>
+                        </form>
+            </div>
         </div>
+       
     </div>
-    <aside>
-        <p>
-            <%= motivation %>.
-        </p>
-    </aside>
+
     <%- include("footer") -%>
