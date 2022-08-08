@@ -191,6 +191,6 @@ input.form-control{
     font-size: 3rem;
   }
   input[type="text"]{
-    width: 70%;
+    width: 95%;
   }
 }
