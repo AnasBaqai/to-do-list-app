@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 //aquiring database
-mongoose.connect("mongodb+srv://anasbaqai:An12as34@cluster0.uuocn2n.mongodb.net/listDB");
+mongoose.connect("mongodb+srv://anasbaqai:<password>@cluster0.uuocn2n.mongodb.net/listDB");
 
 //creating schema for list
 const itemsSchema = new mongoose.Schema({
